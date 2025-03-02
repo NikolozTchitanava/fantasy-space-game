@@ -1,14 +1,17 @@
 package com.motycka.edu.game.account.rest
 
-import com.motycka.edu.game.account.model.AccountId
+import com.motycka.edu.game.account.model.Account
 
-/**
- * Response object returning the account details.
- * This object is used to map the outgoing Kotlin object  to JSON response and is exposed to outside world.
- */
 data class AccountResponse(
-    val id: AccountId,
+    val id: Long,
     val name: String,
-    val username: String,
-    val password: String
+    val username: String
 )
+
+fun Account.toAccountResponse(): AccountResponse {
+    return AccountResponse(
+        id = this.id,
+        name = this.name,
+        username = this.username
+    )
+}

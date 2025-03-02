@@ -1,12 +1,17 @@
 package com.motycka.edu.game.account.rest
 
-/**
- * Request object for registering a new account.
- * This object is used to map the incoming JSON request to a Kotlin object and is exposed to outside world.
- */
+import com.motycka.edu.game.account.model.Account
+
 data class AccountRegistrationRequest(
     val name: String,
     val username: String,
     val password: String
-)
-
+) {
+    fun toAccount(): Account {
+        return Account(
+            name = this.name,
+            username = this.username,
+            password = this.password
+        )
+    }
+}

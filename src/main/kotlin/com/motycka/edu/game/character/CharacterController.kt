@@ -1,35 +1,16 @@
-package com.motycka.edu.game.character
+package com.motycka.edu.game.account.rest
 
-import com.motycka.edu.game.character.CharacterService
-import com.motycka.edu.game.character.rest.CharacterCreateRequest
-import com.motycka.edu.game.character.rest.CharacterResponse
-import com.motycka.edu.game.character.rest.CharactersFilter
+import com.motycka.edu.game.account.model.Account
+import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/characters")
-class CharacterController(
-    private val characterService: CharacterService,
-    private val accountService: AccountService
-) {
+@RequestMapping("/api/accounts")
+class AccountController(private val accountService: AccountService) {
 
     @PostMapping
-    fun postCharacter(
-        @RequestBody character: CharacterCreateRequest
-    ): CharacterResponse {
-        val accountId = accountService.getCurrentAccountId()
-        return characterService.createCharacter(
-            character = character.toCharacter(
-                accountId = accountId
-            )
-        ).toCharacterResponse(accountId)
+    @ResponseStatus(HttpStatus.CREATED)
+    fun registerUser(@RequestBody account: Account): Account {
+        return accountService.registerAccount(account)
     }
-
-    @GetMapping
-    fun getCharacters(): List<CharacterResponse> {
-        val accountId = accountService.getCurrentAccountId()
-        return characterService.getCharacters(
-            filter = CharactersFilter.DEFAULT
-        ).toCharacterResponses(accountId)
-    }
-
 }
