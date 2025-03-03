@@ -19,4 +19,6 @@ data class Match(
 
     @Enumerated(EnumType.STRING)
     val matchOutcome: MatchOutcome
-)
+) {
+    constructor() : this(0, Character(), Character(), MatchOutcome.DRAW)
+}
