@@ -1,5 +1,7 @@
 package com.motycka.edu.game.account.rest
 
+import com.motycka.edu.game.account.model.Account
+import com.motycka.edu.game.account.service.AccountService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -13,8 +15,11 @@ class AccountController(
     @GetMapping("/{username}")
     fun getAccount(@PathVariable username: String): ResponseEntity<AccountResponse> {
         val account = accountService.findByUsername(username)
-            ?: return ResponseEntity.notFound().build()
-        return ResponseEntity.ok(account.toAccountResponse())
+        return if (account != null) {
+            ResponseEntity.ok(account.toAccountResponse())
+        } else {
+            ResponseEntity.notFound().build()
+        }
     }
 
     @PostMapping

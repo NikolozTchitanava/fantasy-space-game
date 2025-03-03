@@ -1,8 +1,8 @@
 -- Create accounts table
 CREATE TABLE IF NOT EXISTS account (
                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                       name TEXT NOT NULL,
                                        username TEXT NOT NULL UNIQUE,
+                                       email TEXT NOT NULL UNIQUE,
                                        password TEXT NOT NULL -- Plain text for simplicity (not recommended for production)
 );
 

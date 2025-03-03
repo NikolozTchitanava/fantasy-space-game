@@ -1,6 +1,8 @@
 package com.motycka.edu.game.account.rest
 
-import io.github.oshai.kotlinlogging.KotlinLogging
+import com.motycka.edu.game.account.model.Account
+import org.springframework.data.jpa.repository.JpaRepository
 
-private val logger = KotlinLogging.logger {}
-
+interface AccountRepository : JpaRepository<Account, Long> {
+    fun findByUsername(username: String): Account?
+}
