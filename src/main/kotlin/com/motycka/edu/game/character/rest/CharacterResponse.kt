@@ -1,7 +1,6 @@
 package com.motycka.edu.game.character.rest
 
 import com.motycka.edu.game.character.model.Character
-import com.motycka.edu.game.character.model.CharacterClass
 
 data class CharacterResponse(
     val id: Long,
@@ -12,12 +11,12 @@ data class CharacterResponse(
     val defensePower: Int?,
     val mana: Int?,
     val healingPower: Int?,
-    val characterClass: CharacterClass,
+    val characterClass: String,
     val level: Int,
     val experience: Int
 )
 
-fun Character.toCharacterResponse(accountId: Long?): CharacterResponse {
+fun Character.toCharacterResponse(): CharacterResponse {
     return CharacterResponse(
         id = this.id,
         name = this.name,
@@ -27,7 +26,7 @@ fun Character.toCharacterResponse(accountId: Long?): CharacterResponse {
         defensePower = this.defensePower,
         mana = this.mana,
         healingPower = this.healingPower,
-        characterClass = this.characterClass,
+        characterClass = this.characterClass.name,
         level = this.level,
         experience = this.experience
     )

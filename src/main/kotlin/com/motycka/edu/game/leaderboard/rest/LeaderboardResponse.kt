@@ -13,7 +13,7 @@ data class LeaderboardResponse(
 
 fun LeaderboardEntry.toLeaderboardResponse(): LeaderboardResponse {
     return LeaderboardResponse(
-        character = this.character.toCharacterResponse(this.character.accountId),
+        character = this.character.toCharacterResponse(),
         wins = this.wins,
         losses = this.losses,
         draws = this.draws

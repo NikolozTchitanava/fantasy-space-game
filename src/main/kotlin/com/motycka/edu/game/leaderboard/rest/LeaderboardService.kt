@@ -1,6 +1,6 @@
-package com.motycka.edu.game.leaderboard.service
+package com.motycka.edu.game.leaderboard.rest
 
-import com.motycka.edu.game.leaderboard.rest.LeaderboardRepository
+import com.motycka.edu.game.leaderboard.model.LeaderboardEntry
 import com.motycka.edu.game.character.model.CharacterClass
 import org.springframework.stereotype.Service
 
