@@ -1,4 +1,4 @@
-package com.motycka.edu.game.character
+package com.motycka.edu.game.character.rest
 
 import com.motycka.edu.game.character.model.Character
 import com.motycka.edu.game.character.rest.CharactersFilter

@@ -1,6 +1,5 @@
 package com.motycka.edu.game.account.rest
 
-import com.motycka.edu.game.account.AccountService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
