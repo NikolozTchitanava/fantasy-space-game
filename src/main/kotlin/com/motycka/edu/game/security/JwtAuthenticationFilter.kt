@@ -8,17 +8,16 @@ import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
-import org.springframework.security.core.authority.SimpleGrantedAuthority
-import org.springframework.security.core.context.SecurityContext
-
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
+import org.springframework.web.filter.OncePerRequestFilter
 import java.io.IOException
 
 class JwtAuthenticationFilter(
     private val jwtTokenProvider: JwtTokenProvider,
     private val userDetailsService: UserDetailsService
-) : UsernamePasswordAuthenticationFilter() {
+) : OncePerRequestFilter() {  // Changed from UsernamePasswordAuthenticationFilter to OncePerRequestFilter
 
+    @Throws(IOException::class, ServletException::class)
     override fun doFilterInternal(
         request: HttpServletRequest,
         response: HttpServletResponse,
@@ -33,6 +32,7 @@ class JwtAuthenticationFilter(
             val authentication = UsernamePasswordAuthenticationToken(
                 userDetails, null, userDetails.authorities
             )
+            authentication.details = WebAuthenticationDetailsSource().buildDetails(request)
             SecurityContextHolder.getContext().authentication = authentication
         }
 
