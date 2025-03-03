@@ -1,4 +1,4 @@
-package com.motycka.edu.game.match.service
+package com.motycka.edu.game.account
 
 import com.motycka.edu.game.match.model.Match
 import com.motycka.edu.game.match.model.MatchOutcome

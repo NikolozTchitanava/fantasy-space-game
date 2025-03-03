@@ -15,8 +15,8 @@ data class MatchResponse(
 fun Match.toMatchResponse(): MatchResponse {
     return MatchResponse(
         id = this.id,
-        challenger = this.challenger.toCharacterResponse(this.challenger.accountId),
-        opponent = this.opponent.toCharacterResponse(this.opponent.accountId),
+        challenger = this.challenger.toCharacterResponse(),
+        opponent = this.opponent.toCharacterResponse(),
         matchOutcome = this.matchOutcome
     )
 }
