@@ -15,7 +15,7 @@ data class Character(
     val mana: Int?,
     val healingPower: Int?,
     @Enumerated(EnumType.STRING)
-    val characterClass: CharacterClass,
+    val characterClass: `CharacterClass.kt`,
     val level: Int = 1,
     val experience: Int = 0,
     val accountId: Long
