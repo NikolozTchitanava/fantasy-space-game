@@ -12,12 +12,12 @@ group = "com.motycka.edu"
 version = "1.0.0"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_23
-    targetCompatibility = JavaVersion.VERSION_23
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 kotlin {
-    jvmToolchain(23)
+    jvmToolchain(17)
 }
 
 repositories {
@@ -40,9 +40,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    // implementation("org.springframework.boot:spring-boot-starter-webflux:3.4.2")
 
-    // runtimeOnly("org.postgresql:postgresql")
+    implementation("io.jsonwebtoken:jjwt:0.11.5")
+
     runtimeOnly("com.h2database:h2")
 
     testImplementation(kotlin("test"))

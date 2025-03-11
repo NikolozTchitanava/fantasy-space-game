@@ -1,6 +1,6 @@
 package com.motycka.edu.game.security
 
-import com.motycka.edu.game.account.rest.AccountRepository
+import com.motycka.edu.game.account.repository.AccountRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService

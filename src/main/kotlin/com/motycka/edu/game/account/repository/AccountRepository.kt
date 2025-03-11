@@ -1,4 +1,4 @@
-package com.motycka.edu.game.account.rest
+package com.motycka.edu.game.account.repository
 
 import com.motycka.edu.game.account.model.Account
 import org.springframework.data.jpa.repository.JpaRepository

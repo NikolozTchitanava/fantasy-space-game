@@ -14,12 +14,8 @@ class AccountController(
 
     @GetMapping("/{username}")
     fun getAccount(@PathVariable username: String): ResponseEntity<AccountResponse> {
-        val account = accountService.findByUsername(username)
-        return if (account != null) {
-            ResponseEntity.ok(account.toAccountResponse())
-        } else {
-            ResponseEntity.notFound().build()
-        }
+        val account = accountService.findByUsername(username) ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok(account.toAccountResponse())
     }
 
     @PostMapping
