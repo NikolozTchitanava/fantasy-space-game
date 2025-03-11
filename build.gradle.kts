@@ -20,12 +20,8 @@ kotlin {
     jvmToolchain(21)
 }
 
-
 repositories {
     mavenCentral()
-    maven { url = uri("https://repo.spring.io/release") }
-    maven { url = uri("https://repo.spring.io/milestone") }
-    maven { url = uri("https://repo.spring.io/snapshot") }
 }
 
 dependencies {
@@ -42,7 +38,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
-    implementation("io.jsonwebtoken:jjwt:0.11.5")
+    implementation("io.jsonwebtoken:jjwt:0.12.5")
 
     runtimeOnly("com.h2database:h2")
 
